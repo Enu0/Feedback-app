@@ -1,17 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+import App from './App'
 
+// the index html file in the public folder is been loaded into the browser, calling render
+// function from ReactDOM library passing in main app component that's going to be output in
+// the div with id of "root"
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+    //StrictMode activates additional checks and warning
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>, 
+    document.getElementById('root')
+)
