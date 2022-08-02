@@ -1,4 +1,3 @@
-import { FaTimes } from 'react-icons/fa'
 import PropTypes from 'prop-types'
 
 function Card({children, reverse}) {
