@@ -1,6 +1,6 @@
-import React from 'react';
 import FeebackItem from './FeedbackItem';
 import PropTypes from 'prop-types'
+
 function FeedbackList({feedback}) {
     if (!feedback || feedback.length === 0){
         return <p>No feedback yet</p>
