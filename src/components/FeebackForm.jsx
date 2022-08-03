@@ -1,12 +1,13 @@
 import Card from './shared/Card'
+import Button from './shared/Button'
 import { useState } from 'react'
+
 
 function FeebackForm() {
     // hook text state to our input
     const [text, setText] = useState('')
     const handleTextChange = (e) => {
         setText(e.target.value)
-        console.log(text.length)
     }
 
   return (
@@ -20,7 +21,7 @@ function FeebackForm() {
                 onChange = {handleTextChange}
                 value = {text}
                 />
-                <button type = 'submit'> Submit </button>
+                <Button type = 'submit' version = 'secondary'> Send </Button>
             </div>
         </form>
     </Card>
