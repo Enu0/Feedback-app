@@ -8,13 +8,14 @@ function FeebackForm() {
     const [text, setText] = useState('')
     const [btnDisabled, setbtnDisabled] = useState(true)
     const [message, setMessage] = useState('')
-
-    const handleTextChange = (e) => {
-        setText(e.target.value)
-        if (e.target.value.length === 0){
+    // bug fix: should be checking input value not state, as state won't be rendered until 
+    // the next render of the component. 
+    const handleTextChange = ( {target: {value}} ) => {
+        setText(value)
+        if (value.length === 0){
             setbtnDisabled(true)
             setMessage(null)
-        }else if(e.target.value.trim().length < 10){
+        }else if(value.trim().length < 10){
             setbtnDisabled(true)
             setMessage('Review must be at least 10 characters.')
         }else{
