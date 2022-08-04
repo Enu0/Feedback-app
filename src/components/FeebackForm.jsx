@@ -11,10 +11,10 @@ function FeebackForm() {
 
     const handleTextChange = (e) => {
         setText(e.target.value)
-        if (text === ''){
+        if (e.target.value.length === 0){
             setbtnDisabled(true)
             setMessage(null)
-        }else if(text !== '' && text.trim().length < 10){
+        }else if(e.target.value.trim().length < 10){
             setbtnDisabled(true)
             setMessage('Review must be at least 10 characters.')
         }else{
@@ -36,7 +36,7 @@ function FeebackForm() {
                 />
                 <Button type = 'submit' version = 'secondary' isDisabled = {btnDisabled}> Send </Button>
             </div>
-            <div className = 'message'> {message} </div>
+                <div className = 'message'> {message} </div>
         </form>
     </Card>
   )
