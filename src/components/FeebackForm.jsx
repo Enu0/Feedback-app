@@ -5,7 +5,7 @@ import RatingSelect from './RatingSelect'
 
 
 
-function FeebackForm() {
+function FeebackForm({handleAdd}) {
     // hook text state to our input
     const [text, setText] = useState('')
     const [btnDisabled, setbtnDisabled] = useState(true)
@@ -28,9 +28,21 @@ function FeebackForm() {
         }
     }
 
+    const handleSubmit = (e) =>{
+        e.preventDefault()
+        if (text.trim().length >= 10) {
+            const newFeedback = {
+                text, rating
+            }
+            handleAdd(newFeedback)
+        }
+        setText('')
+        setbtnDisabled(true)
+    }
+
   return (
     <Card>
-        <form className = 'form'>
+        <form className = 'form' onSubmit = {handleSubmit}>
             <h2> How would you rate your service with us today? </h2>
             <RatingSelect select = {(rating) => setRating(rating)}/>
             <div className = 'input-group'>
