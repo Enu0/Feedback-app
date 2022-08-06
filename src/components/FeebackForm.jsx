@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import Card from './shared/Card'
 import Button from './shared/Button'
-import { useState } from 'react'
+import RatingSelect from './RatingSelect'
+
 
 
 function FeebackForm() {
@@ -8,6 +10,8 @@ function FeebackForm() {
     const [text, setText] = useState('')
     const [btnDisabled, setbtnDisabled] = useState(true)
     const [message, setMessage] = useState('')
+    const [rating, setRating] = useState(5)
+
     // bug fix: should be checking input value not state, as state won't be rendered until 
     // the next render of the component. 
     const handleTextChange = ( {target: {value}} ) => {
@@ -26,8 +30,9 @@ function FeebackForm() {
 
   return (
     <Card>
-        <form>
+        <form className = 'form'>
             <h2> How would you rate your service with us today? </h2>
+            <RatingSelect select = {(rating) => setRating(rating)}/>
             <div className = 'input-group'>
                 <input 
                 type = 'text' 
